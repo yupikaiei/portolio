@@ -1,9 +1,9 @@
 import { Client } from "@notionhq/client";
-import { NOTION_KEY } from '$env/static/private'
+import { env } from "$env/dynamic/private"
 
 // Initializing a client
 const notion = new Client({
-    auth: NOTION_KEY,
+    auth: env.NOTION_KEY,
 })
 
     ; (async () => {
