@@ -32,7 +32,7 @@ export async function load() {
         },
     })
 
-    const toolkit = myPage.results.map((page) => {
+    let toolkit = myPage.results.map((page) => {
         return page.properties.Toolkit.multi_select.map((item) => {
             return {
                 name: item.name
@@ -40,8 +40,15 @@ export async function load() {
         })
     })
 
+    // remove duplicates from toolkit
+    toolkit = toolkit.flat().filter((item, index, self) =>
+        index === self.findIndex((t) => (
+            t.name === item.name
+        ))
+    )
+
     return {
         projects: myPage.results,
-        toolkit: toolkit.flat()
+        toolkit: toolkit
     }
 }

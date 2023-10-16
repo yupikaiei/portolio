@@ -4,20 +4,23 @@
 
     onMount(() => {
         // console.log($selectedProject.properties);
-    })
+    });
 </script>
 
 {#if $selectedProject}
     <div class="h-full min-h-screen m-5">
-        <div class="stack w-full flex flex-col align-start">
-            <h1 class="text-5xl font-bold">
-                {$selectedProject.properties.Name.title[0].plain_text}
-            </h1>
-            <div class="flex flex-row align-center justify-center bg-base-200">
-                <img src={$selectedProject.cover.file.url} alt="cover" />
-            </div>
+        <div class="absolute top-18 h-56 left-0 bg-base-200 w-full">
+            <img class="object-contain h-full w-full" src={$selectedProject.cover.file.url} alt="cover" />
         </div>
-        <div class="mt-12">
+        <h1 class="text-3xl font-bold mt-60">
+            {$selectedProject.properties.Name.title[0].plain_text}
+        </h1>
+        <div class="mt-5">
+            {#each $selectedProject.properties.Tags.multi_select as tag}
+                <span class="badge badge-secondary">{tag.name}</span>
+            {/each}
+        </div>
+        <div class="mt-5 flex justify-end gap-2">
             {#if $selectedProject.properties.Media}
                 <button
                     class="btn"
@@ -29,6 +32,8 @@
                         height="1em"
                         viewBox="0 0 576 512"
                         ><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                        <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                        <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                         <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                         <style>
                             svg {
@@ -51,6 +56,8 @@
                         height="1em"
                         viewBox="0 0 640 512"
                         ><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                        <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                        <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                         <style>
                             svg {
                                 fill: #ffffff;
@@ -63,19 +70,14 @@
                 </button>
             {/if}
         </div>
-        <div class="mt-5">
-            {#each $selectedProject.properties.Tags.multi_select as tag}
-                <span class="badge badge-secondary">{tag.name}</span>
-            {/each}
-        </div>
         <div class="mt-12">
             {$selectedProject.properties.Description.rich_text[0].plain_text}
         </div>
-        
+
         <div class="mt-5">
             <span class="font-bold">Toolkit: </span>
-            <br/>
-            <br/>
+            <br />
+            <br />
             {#each $selectedProject.properties.Toolkit.multi_select as tag}
                 <span class="badge badge-secondary">{tag.name}</span>
             {/each}

@@ -60,7 +60,7 @@
       </div>
     </div>
     <!-- Page content here -->
-    <div class="mt-20">
+    <div class="mt-18">
       <slot />
     </div>
   </div>
