@@ -8,9 +8,9 @@
       </div>
       <h1 class="text-5xl font-bold">Hello I'm Magno</h1>
       <p class="py-6">
-        A multidisciplinary software engineer with a passion for creating
+        A multidisciplinary <span class="text-secondary">software engineer</span> with a passion for creating
         engaging, entertaining user experiences. ✨ Currently working at
-        Accenture Song as a Creative Technologist. 👩🏻‍💻
+        <span class="text-secondary">Accenture Song</span> as a Creative Technologist. 👩🏻‍💻
       </p>
       <p class="scroll-down-text">
         <svg
