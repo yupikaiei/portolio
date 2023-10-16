@@ -3,7 +3,7 @@
 </script>
 
 <div class="p-5">
-    <h1 class="text-5xl font-bold">{title}</h1>
+    <h2 class="text-2xl font-bold mb-5">{title}</h2>
     <div>
         <slot />
     </div>

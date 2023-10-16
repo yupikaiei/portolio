@@ -1,4 +1,6 @@
 <script>
+    import AnimatedContainer from "./AnimatedContainer.svelte";
+
     export let tools = [
         { name: "Tool 1" },
         { name: "Tool 2" },
@@ -7,8 +9,10 @@
     ];
 </script>
 
-<div class="flex flex-wrap gap-2 pt-12 pb-12">
+<div id="anchor-tools" class="flex flex-wrap gap-2 pt-12 pb-12">
     {#each tools as tool}
-        <div class="badge badge-secondary">{tool.name}</div>
+        <AnimatedContainer>
+            <div class="badge badge-secondary">{tool.name}</div>
+        </AnimatedContainer>
     {/each}
 </div>

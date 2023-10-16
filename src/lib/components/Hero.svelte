@@ -1,3 +1,8 @@
+<script>
+    import AnimatedContainer from "./AnimatedContainer.svelte";
+
+</script>
+<AnimatedContainer>
 <div class="hero min-h-screen bg-base-200">
   <div class="hero-content text-center">
     <div class="max-w-md">
@@ -32,6 +37,7 @@
     </div>
   </div>
 </div>
+</AnimatedContainer>
 
 <style>
   .scroll-down-text {

@@ -17,7 +17,7 @@ const notion = new Client({
             // },
         })
 
-        console.log(myPage.results)
+        // console.log(myPage.results)
     })()
 
 
@@ -32,14 +32,16 @@ export async function load() {
         },
     })
 
-    // console.log(myPage.results)
     const toolkit = myPage.results.map((page) => {
-        // console.log(page.properties.Toolkit.rich_text[0].plain_text)
-        return { name: page.properties.Toolkit.rich_text[0].plain_text }
+        return page.properties.Toolkit.multi_select.map((item) => {
+            return {
+                name: item.name
+            }
+        })
     })
 
     return {
         projects: myPage.results,
-        toolkit: toolkit
+        toolkit: toolkit.flat()
     }
 }
