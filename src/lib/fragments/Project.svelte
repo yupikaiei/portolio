@@ -8,7 +8,7 @@
 </script>
 
 {#if $selectedProject}
-    <div class="h-screen m-5">
+    <div class="h-full min-h-screen m-5">
         <div class="stack w-full flex flex-col align-start">
             <h1 class="text-5xl font-bold">
                 {$selectedProject.properties.Name.title[0].plain_text}
