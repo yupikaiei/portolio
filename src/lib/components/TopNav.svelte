@@ -50,12 +50,22 @@
       <div class="flex-none hidden lg:block">
         <ul class="menu menu-horizontal">
           <!-- Navbar menu content here -->
-          <li>
-            <a href="#anchor-projects" on:click={handleAnchorClick}>Projects</a>
-          </li>
-          <li>
-            <a href="#anchor-tools" on:click={handleAnchorClick}>My Toolkit</a>
-          </li>
+          {#if $showProject}
+            <li>
+              <a href="#anchor-projects" on:click={handleAnchorClick}>Go Back</a
+              >
+            </li>
+          {:else}
+            <li>
+              <a href="#anchor-projects" on:click={handleAnchorClick}
+                >Projects</a
+              >
+            </li>
+            <li>
+              <a href="#anchor-tools" on:click={handleAnchorClick}>My Toolkit</a
+              >
+            </li>
+          {/if}
         </ul>
       </div>
     </div>
@@ -72,12 +82,18 @@
     />
     <ul class="menu p-4 w-80 min-h-full bg-base-200">
       <!-- Sidebar content here -->
-      <li>
-        <a href="#anchor-projects" on:click={handleAnchorClick}>Projects</a>
-      </li>
-      <li>
-        <a href="#anchor-tools" on:click={handleAnchorClick}>My Toolkit</a>
-      </li>
+      {#if $showProject}
+        <li>
+          <a href="#anchor-projects" on:click={handleAnchorClick}>Go Back</a>
+        </li>
+      {:else}
+        <li>
+          <a href="#anchor-projects" on:click={handleAnchorClick}>Projects</a>
+        </li>
+        <li>
+          <a href="#anchor-tools" on:click={handleAnchorClick}>My Toolkit</a>
+        </li>
+      {/if}
     </ul>
   </div>
 </div>
