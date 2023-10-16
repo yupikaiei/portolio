@@ -1,10 +1,20 @@
-<h1 class="text-3xl font-bold underline">
-  Hello world!
-</h1>
+<script>
+  import Footer from "$lib/components/Footer.svelte";
+import Hero from "$lib/components/Hero.svelte";
+  import ProjectGallery from "$lib/components/ProjectGallery.svelte";
+  import Toolkit from "$lib/components/Toolkit.svelte";
+  import Section from "$lib/components/Section.svelte";
 
-<style lang="postcss">
-  :global(html) {
-    background-color: theme(colors.gray.100);
-  }
-</style>
+  export let data;
+</script>
+
+<Hero />
+<Section title="My Projects">
+  <ProjectGallery projects={data.projects}/>
+</Section>
+<Section title="My Toolkit">
+  <Toolkit tools={data.toolkit} />
+</Section>
+<Footer />
+
 
