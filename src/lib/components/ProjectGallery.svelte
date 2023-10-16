@@ -15,7 +15,7 @@
 <div id="anchor-projects" class="flex flex-wrap gap-4">
     {#each projects as project}
         <AnimatedContainer>
-            <div class="card w-96 h-64 bg-base-100 shadow-xl image-full">
+            <div class="card md:w-80 xl:w-96 h-64 bg-base-100 shadow-xl image-full">
                 <figure>
                     <img src={project.cover.file.url} alt="showcase" />
                 </figure>
