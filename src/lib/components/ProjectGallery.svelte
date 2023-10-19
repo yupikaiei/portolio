@@ -7,8 +7,6 @@
         window.location = `/project/${project.id}`
     }
 
-    $: console.log('projects', projects);
-
 </script>
 
 <div id="anchor-projects" class="flex flex-wrap gap-4">

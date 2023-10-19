@@ -23,6 +23,8 @@ export async function handle({ event, resolve }) {
         toolkit: toolkit
     }
 
+    // console.log('Running hook')
+
 	const response = await resolve(event);
 	return response;
 }
