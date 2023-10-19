@@ -1,31 +1,26 @@
 <script>
-    import { selectedProject } from "$lib/stores";
-    import { onMount } from "svelte";
-
-    onMount(() => {
-        // console.log($selectedProject.properties);
-    });
+    export let project
 </script>
 
-{#if $selectedProject}
+{#if project}
     <div class="h-full min-h-screen m-5">
         <div class="absolute top-18 h-56 left-0 bg-base-200 w-full">
-            <img class="object-contain h-full w-full" src={$selectedProject.cover.file.url} alt="cover" />
+            <img class="object-contain h-full w-full" src={project.cover.file.url} alt="cover" />
         </div>
         <h1 class="text-3xl font-bold mt-60">
-            {$selectedProject.properties.Name.title[0].plain_text}
+            {project.properties.Name.title[0].plain_text}
         </h1>
         <div class="mt-5">
-            {#each $selectedProject.properties.Tags.multi_select as tag}
+            {#each project.properties.Tags.multi_select as tag}
                 <span class="badge badge-secondary">{tag.name}</span>
             {/each}
         </div>
         <div class="mt-5 flex justify-end gap-2">
-            {#if $selectedProject.properties.Media}
+            {#if project.properties.Media}
                 <button
                     class="btn"
                     on:click={() =>
-                        window.open($selectedProject.properties.Media.url)}
+                        window.open(project.properties.Media.url)}
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -45,11 +40,11 @@
                     >Showcase
                 </button>
             {/if}
-            {#if $selectedProject.properties.Repository}
+            {#if project.properties.Repository}
                 <button
                     class="btn"
                     on:click={() =>
-                        window.open($selectedProject.properties.Repository.url)}
+                        window.open(project.properties.Repository.url)}
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -71,14 +66,14 @@
             {/if}
         </div>
         <div class="mt-12">
-            {$selectedProject.properties.Description.rich_text[0].plain_text}
+            {project.properties.Description.rich_text[0].plain_text}
         </div>
 
         <div class="mt-5">
             <span class="font-bold">Toolkit: </span>
             <br />
             <br />
-            {#each $selectedProject.properties.Toolkit.multi_select as tag}
+            {#each project.properties.Toolkit.multi_select as tag}
                 <span class="badge badge-secondary">{tag.name}</span>
             {/each}
         </div>

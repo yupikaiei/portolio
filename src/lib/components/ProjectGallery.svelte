@@ -1,14 +1,13 @@
 <script>
     import AnimatedContainer from "./AnimatedContainer.svelte";
-    import { selectedProject, showProject } from "$lib/stores";
 
     export let projects = [];
 
     function navigateToProject (project) {
-        $selectedProject = project;
-        window.scrollTo(0, 0);
-        $showProject = true;
+        window.location = `/project/${project.id}`
     }
+
+    $: console.log('projects', projects);
 
 </script>
 
